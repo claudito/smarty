@@ -1,0 +1,56 @@
+++++++++++++++++++++++++++++++++++
++       Proyecto con Smarty      +
+++++++++++++++++++++++++++++++++++
+
+Folders:
+
+*Cache:
+Es la  carpeta contenedor de los archivos donde se compilan los  templates
+de Smarty
+
+
+
+
+*estilos/templates:
+Contiene los templates  Smarty con la extensión .tpl
+
+
+
+
+*includes/libs:
+La  libreria  Smarty:
+
+Si se quiere  ejecutar smarty desde  diferentes niveles de directorio,
+solo modificar  el siguiente  script:
+ if ($parametro == 0)
+        {
+           $this->template_dir = './estilos/templates';
+           $this->compile_dir = './cache';
+        }
+        else  if ($parametro == 1)
+        {
+          
+           $this->template_dir = '../estilos/templates';
+            $this->compile_dir = '../cache';
+
+        }
+
+
+         else
+        {
+          
+           $this->template_dir = '../../estilos/templates';
+            $this->compile_dir = '../../cache';
+
+        }
+
+
+Pasando  como parametro el número que indique el nivel del directorio,
+se  puedes  agregar mas condiciones  para diferentes niveles.
+Esta condicion la podemos encontrar en  la funcion constructor
+dentro del archivo ./includes/libs/Smarty.class.php
+
+
+*pages
+
+
